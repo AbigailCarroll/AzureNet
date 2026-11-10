@@ -7,7 +7,7 @@ let cursorInterval: number = 600;
 export default function Cursor()
 {
     useEffect(() => {
-        setTimeout(Hide, cursorInterval);
+        setTimeout(Blink, cursorInterval);
     }, []);
     return(
     <span id="cursor" className="blink">
@@ -17,11 +17,10 @@ export default function Cursor()
 }
 
 
-//setTimeout(Hide, cursorInterval);
-
-function Hide()
+function Blink()
 {
     const cursorElement = document.getElementById("cursor");
     cursorElement?.toggleAttribute("hidden");
-    setTimeout(Hide, cursorInterval);
+    setTimeout(Blink, cursorInterval);
+
 }
