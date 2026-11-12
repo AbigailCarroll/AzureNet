@@ -22,5 +22,4 @@ function Blink()
     const cursorElement = document.getElementById("cursor");
     cursorElement?.toggleAttribute("hidden");
     setTimeout(Blink, cursorInterval);
-
 }

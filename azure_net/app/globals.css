@@ -42,8 +42,8 @@ div:focus{
   box-shadow: none;
 }
 
-.textDiv {
-	margin-bottom:20px;
+.text_div {
+	margin-bottom:0px;
 }
 
 .console .consolebody {
@@ -63,13 +63,6 @@ div:focus{
 	height:5px;
 	margin-top:33px;
 	margin-left:5px;
-}
-
-.terminal_text
-{
-  caret-color: #000000;
-  width:9px;
-  
 }
 
 .console .consolebody p {

@@ -4,6 +4,7 @@ import { Fira_Mono } from 'next/font/google';
 
 import { Suspense, useEffect } from "react";
 import Cursor from "./components/cursor";
+import parseInput from "./interpreter";
 
 const firaMono = Fira_Mono({
   subsets: ['latin'],
@@ -33,7 +34,7 @@ export default function Home() {
     <div className="console" >
   <header>
     <p>
-      guest@azurewater
+      guest@azurenet
     </p>
   </header>
   <div className="consolebody" id="msg">
@@ -54,10 +55,12 @@ export default function Home() {
   );
 }
 
+var typing_enabled: boolean = true;
 
-const handleInput = (event: KeyboardEvent) => {
+const handleInput = (event: KeyboardEvent) => 
+  {
     const input = document.getElementById("input");
-    if (input)
+    if (input && typing_enabled)
     {
       if (event.key.length === 1)
       {
@@ -69,8 +72,41 @@ const handleInput = (event: KeyboardEvent) => {
       }
       else if (event.key === "Enter")
       {
-        //showText
+        printText(createNewLine(), "Lorem Ipsum", 50);
+        parseInput();
       }
       //console.log(event.key);
     }
+}
+
+const showText = (target: HTMLElement, text: string) =>
+  {
+    if (!target) return;
+    target.innerText = text;
+  }
+
+const printText = (target: HTMLElement, text: string, interval: number) => 
+  {
+    typing_enabled = false;
+    if (!target) return;
+    if (text.length > 0)
+    {
+      target.append(text[0]);
+      setTimeout(() => printText(target, text.slice(1), interval), interval);
+    }
+    else if (text.length == 0)
+    {
+      typing_enabled = true;
+    }
+    return;
+
+  }
+
+const createNewLine = () =>
+{
+  var div: HTMLElement = document.createElement("div");
+  div.id = "text_div";
+  div.className = "text_div";
+  document.getElementById("message_body")?.prepend(div);
+  return div;
 }
