@@ -4,7 +4,7 @@ import { Fira_Mono } from 'next/font/google';
 
 import { Suspense, useEffect } from "react";
 import Cursor from "./components/cursor";
-import parseInput from "./interpreter";
+import parseInput from "./modules/interpreter";
 
 const firaMono = Fira_Mono({
   subsets: ['latin'],
@@ -83,6 +83,7 @@ const showText = (target: HTMLElement, text: string) =>
   {
     if (!target) return;
     target.innerText = text;
+    return;
   }
 
 const printText = (target: HTMLElement, text: string, interval: number) => 
