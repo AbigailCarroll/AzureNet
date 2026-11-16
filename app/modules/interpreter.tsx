@@ -1,3 +1,5 @@
+import {Stack} from './stack'
+
 enum tokenType {
     //single character tokens
     LEFT_BRACKET, RIGHT_BRACKET, VERT_BAR, LEFT_CURLY_BRACKET, RIGHT_CURLY_BRACKET, FORWARD_SLASH, BACK_SLASH,
@@ -9,6 +11,6 @@ enum tokenType {
 
 export default function parseInput()
 {
-
+    var stack = new Stack()
 
 } 

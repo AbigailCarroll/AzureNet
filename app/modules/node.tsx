@@ -1,14 +1,14 @@
 
-class StackNode
+export class Node
 {
     private data: any;
     private type: string;
-    private next: StackNode | null;
+    private next: Node | null;
 
     
     constructor(data_: any);
-    constructor(data_: any, next_: StackNode | null)
-    constructor(data_: any, next_: StackNode | null = null)
+    constructor(data_: any, next_: Node | null)
+    constructor(data_: any, next_: Node | null = null)
     {
         this.data = data_;
         this.type = typeof data_;
@@ -25,12 +25,12 @@ class StackNode
         return this.type;
     }
 
-    get getNext(): StackNode | null
+    get getNext(): Node | null
     {
         return this.next;
     }
 
-    set setNext(node: StackNode | null)
+    set setNext(node: Node | null)
     {
         this.next = node;
     }
