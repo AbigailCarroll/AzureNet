@@ -1,7 +1,8 @@
 import {Node} from './node'
 
 
-export class Stack {
+export class Stack 
+{
     top: Node | null;
 
     public constructor()

@@ -3,19 +3,7 @@ import { Stack } from '../app/modules/stack'
 import { test as baseTest } from 'vitest'
 
 const test = baseTest.extend('stack', () => new Stack()) 
-/* Arranges the stack object for the tests, for some reason beforeEach wasn't working to reset it.
-
-/*
-beforeEach(() => {
-    stack = new Stack();
-
-    console.log("HELLO WORLD");
-})
-
-afterEach(() =>{
-    console.log("HELLO WORLD");
-})
-*/
+// Arranges the stack object for the tests, for some reason beforeEach wasn't working to reset it.
 
 test('Stack is initialised empty', ({stack}) => {
     var isEmpty: boolean = stack.IsEmpty();
